@@ -2,15 +2,17 @@
 <html lang="zh-CN">
     <head>
     <meta charset="utf-8" />
-    <title>致女朋友两周年的一封信</title>
+    <title>纪念与陈翔宇宝贝儿相恋两周年的一封信</title>
     <style>
         body{
             margin: 0;
+  				  overflow: hidden;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #4bc0c8, #c779d0, #feac5e);
+            
         }
         .box{
             height: 80vh;
@@ -36,32 +38,52 @@
         .box::-webkit-scrollbar {
         display: none; /* Chrome Safari */
       }
+			h1 {
+            position: fixed;
+            top: 40%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            transform: translateY(-50%);
+            font-family: 'Love Ya Like A Sister', cursive;
+            font-size: 40px;
+            color: #c70012;
+            padding: 0 20px;
+        }
+      @media (min-width: 1200px) {
+            h1 {
+                font-size: 100px;
+              }
+         
+          }
         </style>
     </head>
 
     <body>
-        <div class="box">
+
+       
+        <div class="box" >
             <div>亲爱的宝贝儿:</div>
-            <p>
-                时间过得真快，转眼间我们迎来我们的两周年纪念日。回想起我们在一起的点点滴滴，我感慨万分，心里充满了无尽的幸福和感激之情。我想借这个特殊的时刻，写下这封信，表达对你的深深爱意和感激之情。
+            <p style="text-indent:2em;">
+                时间过得飞快，转眼间我们迎来我们的两周年纪念日。回想起我们在一起的点点滴滴，我感慨万分，心里充满了无尽的幸福和感激之情。我想借这个特殊的时刻，写下这封信，表达对你的深深爱意和感激之情。
             </p>
 
-            <p>
+            <p style="text-indent:2em;">
                 在这两年的相处中，宝贝儿给了我无比的温暖和支持。你是我生活中最重要的人，我无论遇到什么困难和挫折，都能感受到你的陪伴和鼓励。每天晚上睡觉前，看到你的笑容，我的心都会被填满幸福的感觉。你让我的生活变得完整，无论在什么样的环境中，只要有你的陪伴，一切都变得明亮起来。
             </p>
-            <p>
+            <p style="text-indent:2em;">
                 你的善良和体贴让我感受到无尽的温暖。每当我感到疲惫和彷徨时，你总是能够给予我坚定的支持和鼓励。你一直包容和理解我，为我提供了一个无条件倾诉的港湾。你的陪伴让我的人生充满了安全感，我真的很幸运能够有你作为伴侣。
             </p>
-            <p>
+            <p style="text-indent:2em;">
                 两年来，我们一起经历了许多美好的时刻和挑战。我们一起去天津旅行，一起在北京和沈阳品味美食，也一起面对生活中的困难。我们在彼此的陪伴下一起成长，互相支持和理解。这些经历让我更加深刻地知道，与你在一起，我真的找到了属于自己的幸福。
             </p>
-            <p>
+            <p style="text-indent:2em;">
                 今天，我向你承诺，无论未来如何变化，我都将一直爱你。我会珍惜我们在一起的每一刻，不论是快乐的时刻还是艰难的时刻。我愿意与你一起经历人生的起伏，分享彼此的喜怒哀乐，陪伴你走过人生的每个阶段。
             </p>
-            <p>
+            <p style="text-indent:2em;">
                 宝贝儿，谢谢你让我的生活充满了爱和温暖。你是我心中最珍贵的存在，我对你的感情无法言喻。在未来的岁月里，我们一起创造更多美好的回忆，一起实现彼此的梦想。
             </p>
-            <p>
+            <p style="text-indent:2em;">
                 最后，再次祝我们的两周年纪念日快乐！谢谢你的陪伴和爱。
             </p>
             <p>
@@ -69,6 +91,110 @@
             </p>
             <p>常炎钊</p>
             <p>2023年07月01日</p>
+                   
+          
+          <canvas></canvas>
+          <script>
+    var canvas = document.querySelector("canvas"),
+        ctx = canvas.getContext("2d");
+
+    var ww, wh;
+
+    function onResize() {
+        ww = canvas.width = window.innerWidth;
+        wh = canvas.height = window.innerHeight;
+    }
+
+    ctx.strokeStyle = "red";
+    ctx.shadowBlur = 25;
+    ctx.shadowColor = "hsla(0, 100%, 60%,0.5)";
+    ctx.font="30px Arial";
+    ctx.fillText("Hello World",10,50);
+
+    var precision = 100;
+    var hearts = [];
+    var mouseMoved = false;
+
+    function onMove(e) {
+        mouseMoved = true;
+        if (e.type === "touchmove") {
+            hearts.push(new Heart(e.touches[0].clientX, e.touches[0].clientY));
+            hearts.push(new Heart(e.touches[0].clientX, e.touches[0].clientY));
+        } else {
+            hearts.push(new Heart(e.clientX, e.clientY));
+            hearts.push(new Heart(e.clientX, e.clientY));
+        }
+    }
+
+
+
+
+
+    var Heart = function (x, y) {
+        this.x = x || Math.random() * ww;
+        this.y = y || Math.random() * wh;
+        this.size = Math.random() * 2 + 1;
+        this.shadowBlur = Math.random() * 10;
+        this.speedX = (Math.random() + 0.2 - 0.6) * 8;
+        this.speedY = (Math.random() + 0.2 - 0.6) * 8;
+        this.speedSize = Math.random() * 0.05 + 0.01;
+        this.opacity = 1;
+        this.vertices = [];
+        for (var i = 0; i < precision; i++) {
+            var step = (i / precision - 0.5) * (Math.PI * 2);
+            var vector = {
+                x: (15 * Math.pow(Math.sin(step), 3)),
+                y: -(13 * Math.cos(step) - 5 * Math.cos(2 * step) - 2 * Math.cos(3 * step) - Math.cos(4 * step))
+            }
+            this.vertices.push(vector);
+        }
+    }
+
+    Heart.prototype.draw = function () {
+        this.size -= this.speedSize;
+        this.x += this.speedX;
+        this.y += this.speedY;
+        ctx.save();
+        ctx.translate(-1000, this.y);
+        ctx.scale(this.size, this.size);
+        ctx.beginPath();
+        for (var i = 0; i < precision; i++) {
+            var vector = this.vertices[i];
+            ctx.lineTo(vector.x, vector.y);
+        }
+        ctx.globalAlpha = this.size;
+        ctx.shadowBlur = Math.round((3 - this.size) * 10);
+        ctx.shadowColor = "hsla(0, 100%, 60%,0.5)";
+        ctx.shadowOffsetX = this.x + 1000;
+        ctx.globalCompositeOperation = "screen"
+        ctx.closePath();
+        ctx.fill()
+        ctx.restore();
+    };
+
+
+    function render(a) {
+        requestAnimationFrame(render);
+
+        hearts.push(new Heart())
+        ctx.clearRect(0, 0, ww, wh);
+        for (var i = 0; i < hearts.length; i++) {
+            hearts[i].draw();
+            if (hearts[i].size <= 0) {
+                hearts.splice(i, 1);
+                i--;
+            }
+        }
+    }
+
+
+    onResize();
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("touchmove", onMove);
+    window.addEventListener("resize", onResize);
+    requestAnimationFrame(render);
+</script>
+
         </div>
         
     
